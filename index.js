@@ -8,7 +8,6 @@ document.getElementById("startButton").addEventListener("click", function() {
   let word = wordList[Math.floor(Math.random() * wordList.length)];
   //Array of letters 
   let letters = word.split("");
-  console.log(letters)
   let blanks = [];
   for (let i = 0; i < letters.length; i++) {
     blanks[i] = "_";
@@ -26,6 +25,7 @@ document.getElementById("startButton").addEventListener("click", function() {
   timerId = setInterval(function() {
     remainingTime--;
     document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
+    //faisal changes
     if (remainingTime <= 0) {
       clearInterval(timerId);
       document.getElementById("message").innerHTML = "Time's up! Game over.";
@@ -52,6 +52,7 @@ document.getElementById("startButton").addEventListener("click", function() {
       document.getElementById("message").innerHTML = "You win!";
       clearInterval(timerId);
     }
+    //faisal changes
     if (remainingTries <= 0) {
       document.getElementById("message").innerHTML = "You lose! The word was: " + word;
       clearInterval(timerId);
