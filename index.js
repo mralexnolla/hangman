@@ -1,9 +1,11 @@
 let timerId;
 
-// Start the game
+//Words from index.json linked in the html index file would be parsed to usable data here
+const wordList = JSON.parse(data)
+
+
 document.getElementById("startButton").addEventListener("click", function() {
   // Define variables
-  const wordList = ["javascript", "html", "css"];
   let word = wordList[Math.floor(Math.random() * wordList.length)];
   let letters = word.split("");
   let blanks = [];
