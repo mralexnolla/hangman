@@ -1,3 +1,4 @@
+
 let timerId;
 
 // Start the game
@@ -18,6 +19,9 @@ document.getElementById("startButton").addEventListener("click", function() {
   document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
   document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
   document.getElementById("message").innerHTML = "";
+   
+  
+   
 
   // Timer
   timerId = setInterval(function() {
@@ -55,4 +59,4 @@ document.getElementById("startButton").addEventListener("click", function() {
     }
   });
 });
-  
+
