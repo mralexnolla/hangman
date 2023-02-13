@@ -4,10 +4,13 @@ let timerId;
 document.getElementById("startButton").addEventListener("click", function() {
   // Define variables
   const wordList = ["javascript", "html", "css"];
+  //Random word index
   let word = wordList[Math.floor(Math.random() * wordList.length)];
+  //Array of letters 
   let letters = word.split("");
+  console.log(letters)
   let blanks = [];
-  for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < letters.length; i++) {
     blanks[i] = "_";
   }
   let remainingTries = 6;
@@ -23,7 +26,7 @@ document.getElementById("startButton").addEventListener("click", function() {
   timerId = setInterval(function() {
     remainingTime--;
     document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
-    if (remainingTime === 0) {
+    if (remainingTime <= 0) {
       clearInterval(timerId);
       document.getElementById("message").innerHTML = "Time's up! Game over.";
     }
@@ -33,7 +36,7 @@ document.getElementById("startButton").addEventListener("click", function() {
   document.addEventListener("keypress", function(event) {
     let letter = event.key;
     let correct = false;
-    for (let i = 0; i < word.length; i++) {
+    for (let i = 0; i < letters.length; i++) {
       if (word[i] === letter) {
         blanks[i] = letter;
         correct = true;
@@ -44,12 +47,12 @@ document.getElementById("startButton").addEventListener("click", function() {
     }
     document.getElementById("word").innerHTML = blanks.join(" ");
     document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
-    document.getElementById("message").innerHTML = "";
+    // document.getElementById("message").innerHTML = "";
     if (blanks.join("") === word) {
       document.getElementById("message").innerHTML = "You win!";
       clearInterval(timerId);
     }
-    if (remainingTries === 0) {
+    if (remainingTries <= 0) {
       document.getElementById("message").innerHTML = "You lose! The word was: " + word;
       clearInterval(timerId);
     }
