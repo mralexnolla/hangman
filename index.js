@@ -1,9 +1,10 @@
 let timerId;
 
+
 // Start the game
 document.getElementById("startButton").addEventListener("click", function() {
   // Define variables
-  const wordList = ["javascript", "html", "css"];
+  const wordList = ["javascript", "html", "css",'photosynthesis','classification'];
   //Random word index
   let word = wordList[Math.floor(Math.random() * wordList.length)];
   //Array of letters 
@@ -26,9 +27,10 @@ document.getElementById("startButton").addEventListener("click", function() {
     remainingTime--;
     document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
     //faisal changes
-    if (remainingTime <= 0) {
+    if (remainingTime == 0) {
       clearInterval(timerId);
       document.getElementById("message").innerHTML = "Time's up! Game over.";
+      return;
     }
   }, 1000);
 
@@ -36,6 +38,7 @@ document.getElementById("startButton").addEventListener("click", function() {
   document.addEventListener("keypress", function(event) {
     let letter = event.key;
     let correct = false;
+
     for (let i = 0; i < letters.length; i++) {
       if (word[i] === letter) {
         blanks[i] = letter;
@@ -43,20 +46,26 @@ document.getElementById("startButton").addEventListener("click", function() {
       }
     }
     if (!correct) {
-      remainingTries--;
+      remainingTries--
     }
+
     document.getElementById("word").innerHTML = blanks.join(" ");
     document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
-    // document.getElementById("message").innerHTML = "";
+    document.getElementById("message").innerHTML = "";
     if (blanks.join("") === word) {
       document.getElementById("message").innerHTML = "You win!";
       clearInterval(timerId);
     }
+
     //faisal changes
-    if (remainingTries <= 0) {
-      document.getElementById("message").innerHTML = "You lose! The word was: " + word;
+    if (remainingTries <= 0){
       clearInterval(timerId);
+      document.getElementById("message").innerHTML = "You lose! The word was: " + word;
+      remainingTries = 7;
     }
+
+    
+    
   });
 });
   
