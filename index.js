@@ -4,7 +4,7 @@ let timerId;
 // Start the game
 document.getElementById("startButton").addEventListener("click", function() {
   // Define variables
-  const wordList = ["javascript", "html", "css"];
+  const wordList = ["javascript", "html", "css"]; 
   let word = wordList[Math.floor(Math.random() * wordList.length)];
   let letters = word.split("");
   let blanks = [];
