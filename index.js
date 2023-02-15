@@ -1,60 +1,90 @@
-let timerId;
+const button = document.getElementById("startButton")
+const tries = document.getElementById("tries")
+const words = document.getElementById("word")
+const timer = document.getElementById("timer")
+const message = document.getElementById("message")
+// All ID's and Classes are assigned const names for easy reference 
+
+
+
 
 //Words from index.json linked in the html index file would be parsed to usable data here
 const wordList = JSON.parse(data)
 
 
-document.getElementById("startButton").addEventListener("click", function() {
-  // Define variables
-  let word = wordList[Math.floor(Math.random() * wordList.length)];
+button.addEventListener("click", function() {
+  // Button function still needs work.
+  button.textContent = ''
+  let word = wordList[Math.floor(Math.random() * wordList.length)]; 
   let letters = word.split("");
   let blanks = [];
-  for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < letters.length; i++) {
     blanks[i] = "_";
   }
   let remainingTries = 6;
   let remainingTime = 30;
 
-  // Update the display
-  document.getElementById("word").innerHTML = blanks.join(" ");
-  document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
-  document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
-  document.getElementById("message").innerHTML = "";
+  words.innerHTML = blanks.join(" ");
+  tries.innerHTML = `Tries remaining: ${remainingTries}`;
+  message.innerHTML = "";
 
-  // Timer
-  timerId = setInterval(function() {
+  // Timer function 
+  let timerId = setInterval(function() {
     remainingTime--;
-    document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
-    if (remainingTime === 0) {
+    timer.innerHTML = `Time remaining: <span>${remainingTime}</span> seconds`;
+    const span = document.querySelector('span')
+    if (span.textContent >= 20){
+      span.style.color = 'green'
+    } else if (span.textContent > 10 && span.textContent <= 19){
+      span.style.color = 'yellow'
+    } else {
+      span.style.color = 'red'
+    }
+    
+    // If statement to ensure game ends when timer ends, still incomplete 
+    if (remainingTime == 0) {
       clearInterval(timerId);
-      document.getElementById("message").innerHTML = "Time's up! Game over.";
+      message.innerHTML = "Time's up! Game over.";
+      return;
     }
   }, 1000);
 
-  // Guess a letter
+  
   document.addEventListener("keypress", function(event) {
     let letter = event.key;
     let correct = false;
-    for (let i = 0; i < word.length; i++) {
+
+    for (let i = 0; i < letters.length; i++) {
       if (word[i] === letter) {
         blanks[i] = letter;
         correct = true;
       }
     }
     if (!correct) {
-      remainingTries--;
+      remainingTries--
     }
-    document.getElementById("word").innerHTML = blanks.join(" ");
-    document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
-    document.getElementById("message").innerHTML = "";
+
+    words.innerHTML = blanks.join(" ");
+    tries.innerHTML = `Tries remaining: ${remainingTries}`;
+    message.innerHTML = "";
     if (blanks.join("") === word) {
-      document.getElementById("message").innerHTML = "You win!";
+      message.innerHTML = "You win!";
+      message.style.fontSize = '30px'
+      message.style.color = 'green'
       clearInterval(timerId);
+      return
     }
-    if (remainingTries === 0) {
-      document.getElementById("message").innerHTML = "You lose! The word was: " + word;
+
+
+    if (remainingTries <= 0){
       clearInterval(timerId);
+      message.innerHTML = "You lose!";
+      message.style.fontSize = '30px'
+      message.style.color = 'red'
     }
+
+    
+    
   });
 });
   

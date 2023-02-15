@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    color: white;
+  
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background-image: url(wp2908940-4024707083.png);
+    background-position: center 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 2rem;
+}
+#word{
+    letter-spacing: 10px;
+    font-size: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+
+}
+#game{
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: linear-gradient(to bottom, #008000, #00cc00);
+    border: 2px solid #008000;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #00cc00, #008000);
+    border-color: #00cc00;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+  
+  
