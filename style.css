@@ -9,7 +9,6 @@ body{
     color: white;
   
 }
-
 .container{
     height: 100vh;
     width: 100%;
@@ -19,7 +18,9 @@ body{
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 2rem;
+    
 }
 //Emmanuel contribution
 
@@ -136,3 +137,24 @@ h1{
 .notification-container.show{
     transform: translateY(-50px);
 }
+=======
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid white
+}
+h1{
+    margin: 2rem auto;
+}
+#startButton {
+    display: block;
+    margin: 20px auto;
+    padding: 5px 20px;
+    background-color: rgb(33, 239, 33);
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
