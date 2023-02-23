@@ -18,14 +18,14 @@ document.getElementById("startButton").addEventListener("click", function() {
 
   // Update the display
   document.getElementById("word").innerHTML = blanks.join(" ");
-  document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
-  document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
+  document.getElementById("tries").innerHTML = `LIVE LEFT: ${remainingTries}`;
+  document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
   document.getElementById("message").innerHTML = "";
 
   // Timer
   timerId = setInterval(function() {
     remainingTime--;
-    document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
+    document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
     //faisal changes
     if (remainingTime == 0) {
       clearInterval(timerId);
@@ -50,7 +50,7 @@ document.getElementById("startButton").addEventListener("click", function() {
     }
 
     document.getElementById("word").innerHTML = blanks.join(" ");
-    document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
+    document.getElementById("tries").innerHTML = `LIVES LEFT: ${remainingTries}`;
     document.getElementById("message").innerHTML = "";
     if (blanks.join("") === word) {
       document.getElementById("message").innerHTML = "You win!";

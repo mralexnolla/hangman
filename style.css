@@ -17,25 +17,40 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 2rem;
-    flex-direction: column;
     text-align: center;
-    border: 1px solid white
+    border: 1px solid white;
+    justify-content: space-between;
 }
 h1{
     margin: 2rem auto;
+    color:rgb(33, 239, 33);
+    font-size: 5rem
 }
 #startButton {
     display: block;
-    margin: 20px auto;
-    padding: 5px 20px;
+    margin: 5rem auto 0px;
+    padding: 20px 10px;
     background-color: rgb(33, 239, 33);
     color: #fff;
-    font-size: 24px;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
-    width: 100%;
+    border-radius: 2rem;
+    width: 50%;
+    font-size: 2rem;
+}
+
+#word{
+    font-size: 2.5rem;
+}
+#message{
+    font-size: 2.3rem;
+    color:rgb(33, 239, 33);
+    margin-top: 3rem;
+}
+#tries,#timer{
+    font-size:2.2rem;
+    font-weight: bold;
+    margin:2rem 0px
 }
