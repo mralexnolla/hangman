@@ -1,11 +1,16 @@
+
 let timerId;
 
 
 // Start the game
 document.getElementById("startButton").addEventListener("click", function() {
   // Define variables
+
+  //const wordList = ["javascript", "html", "css"]; 
+
   const wordList = ["javascript", "html", "css",'photosynthesis','classification'];
   //Random word index
+
   let word = wordList[Math.floor(Math.random() * wordList.length)];
   //Array of letters 
   let letters = word.split("");
@@ -21,6 +26,9 @@ document.getElementById("startButton").addEventListener("click", function() {
   document.getElementById("tries").innerHTML = `LIVE LEFT: ${remainingTries}`;
   document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
   document.getElementById("message").innerHTML = "";
+   
+  
+   
 
   // Timer
   timerId = setInterval(function() {
@@ -68,4 +76,4 @@ document.getElementById("startButton").addEventListener("click", function() {
     
   });
 });
-  
+
