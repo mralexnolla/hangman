@@ -58,10 +58,12 @@ document.getElementById("startButton").addEventListener("click", function() {
     }
 
     //faisal changes
-    if (remainingTries <= 0){
-      clearInterval(timerId);
+    if (remainingTries == 0){
+      // clearInterval(timerId);
       document.getElementById("message").innerHTML = "You lose! The word was: " + word;
       remainingTries = 7;
+      // remainingTime = 30
+      
     }
 
     
