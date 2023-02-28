@@ -1,11 +1,16 @@
+
 let timerId;
 
 
 // Start the game
 document.getElementById("startButton").addEventListener("click", function() {
   // Define variables
+
+  //const wordList = ["javascript", "html", "css"]; 
+
   const wordList = ["javascript", "html", "css",'photosynthesis','classification'];
   //Random word index
+
   let word = wordList[Math.floor(Math.random() * wordList.length)];
   //Array of letters 
   let letters = word.split("");
@@ -18,14 +23,17 @@ document.getElementById("startButton").addEventListener("click", function() {
 
   // Update the display
   document.getElementById("word").innerHTML = blanks.join(" ");
-  document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
-  document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
+  document.getElementById("tries").innerHTML = `LIVE LEFT: ${remainingTries}`;
+  document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
   document.getElementById("message").innerHTML = "";
+   
+  
+   
 
   // Timer
   timerId = setInterval(function() {
     remainingTime--;
-    document.getElementById("timer").innerHTML = `Time remaining: ${remainingTime} seconds`;
+    document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
     //faisal changes
     if (remainingTime == 0) {
       clearInterval(timerId);
@@ -50,7 +58,7 @@ document.getElementById("startButton").addEventListener("click", function() {
     }
 
     document.getElementById("word").innerHTML = blanks.join(" ");
-    document.getElementById("tries").innerHTML = `Tries remaining: ${remainingTries}`;
+    document.getElementById("tries").innerHTML = `LIVES LEFT: ${remainingTries}`;
     document.getElementById("message").innerHTML = "";
     if (blanks.join("") === word) {
       document.getElementById("message").innerHTML = "You win!";
@@ -70,4 +78,4 @@ document.getElementById("startButton").addEventListener("click", function() {
     
   });
 });
-  
+
