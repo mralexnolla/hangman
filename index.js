@@ -1,12 +1,31 @@
 
-let timerId;
-
 
 // Start the game
 document.getElementById("startButton").addEventListener("click", function() {
+  
+  
+ let timerId;
   // Define variables
+  let remainingTries = 6;
+  let remainingTime = 30;
 
-  //const wordList = ["javascript", "html", "css"]; 
+  if(!timerId){
+    // Timer
+    timerId = setInterval(function() {
+      remainingTime--;
+      document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
+      //disbale start button
+      document.getElementById("startButton").addEventListener('click',function(){
+        clearInterval(timerId);
+      })
+      
+      //faisal changes
+      if (remainingTime == 0 ) {
+        clearInterval(timerId);
+        document.getElementById("message").innerHTML = "Time's up! Game over.";
+      }
+    }, 1000);
+  }
 
   const wordList = ["javascript", "html", "css",'photosynthesis','classification'];
   //Random word index
@@ -17,9 +36,10 @@ document.getElementById("startButton").addEventListener("click", function() {
   let blanks = [];
   for (let i = 0; i < letters.length; i++) {
     blanks[i] = "_";
+
+    
   }
-  let remainingTries = 6;
-  let remainingTime = 30;
+
 
   // Update the display
   document.getElementById("word").innerHTML = blanks.join(" ");
@@ -27,21 +47,6 @@ document.getElementById("startButton").addEventListener("click", function() {
   document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
   document.getElementById("message").innerHTML = "";
    
-  
-   
-
-  // Timer
-  timerId = setInterval(function() {
-    remainingTime--;
-    document.getElementById("timer").innerHTML = `TIME LEFT: ${remainingTime} seconds`;
-    //faisal changes
-    if (remainingTime == 0) {
-      clearInterval(timerId);
-      document.getElementById("message").innerHTML = "Time's up! Game over.";
-      return;
-    }
-  }, 1000);
-
   // Guess a letter
   document.addEventListener("keypress", function(event) {
     let letter = event.key;
@@ -60,20 +65,27 @@ document.getElementById("startButton").addEventListener("click", function() {
     document.getElementById("word").innerHTML = blanks.join(" ");
     document.getElementById("tries").innerHTML = `LIVES LEFT: ${remainingTries}`;
     document.getElementById("message").innerHTML = "";
+
     if (blanks.join("") === word) {
-      document.getElementById("message").innerHTML = "You win!";
       clearInterval(timerId);
+      document.getElementById("message").innerHTML = "You win!";
+      
     }
 
     //faisal changes
-    if (remainingTries <= 0){
-      clearInterval(timerId);
+    if (remainingTries == 0){
       document.getElementById("message").innerHTML = "You lose! The word was: " + word;
+      clearInterval(timerId);
       remainingTries = 7;
+      document.addEventListener('keypress',function(){
+        location.reload()
+      })
+      
+      
     }
-
-    
-    
   });
+
+
+
 });
 
