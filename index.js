@@ -1,13 +1,25 @@
-
+gameStart = false
 
 // Start the game
 document.getElementById("startButton").addEventListener("click", function() {
-  
+  gameStart = true
   
  let timerId;
   // Define variables
   let remainingTries = 6;
   let remainingTime = 30;
+  gameStart
+
+  const bodyParts = [
+    "#head",
+    "#body",
+    "#left-arm",
+    "#right-arm",
+    "#left-leg",
+    "#right-leg",
+  ];
+  
+  
 
   if(!timerId){
     // Timer
@@ -81,11 +93,17 @@ document.getElementById("startButton").addEventListener("click", function() {
         location.reload()
       })
       
-      
     }
+    
+    if(gameStart && remainingTries < bodyParts.length){
+      const bodyPart = document.querySelector(bodyParts[remainingTries]);
+      bodyPart.style.display = "block"
+      console.log(bodyPart) 
+    }
+
   });
 
-
+    
 
 });
 

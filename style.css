@@ -34,7 +34,102 @@ body {
 	width: 450px;
 	left: 20px;
 	top: 8rem;
+	/* background-color: #000; */
+    /* border: 0px solid #000; */
+    position: relative;
 }
+
+/* --------- */
+
+#gallows {
+	width: 200px;
+	height: 10px;
+	background-color: #fff;
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+  }
+
+  #rope {
+	width: 70px;
+	height: 2px;
+	background-color: #fff;
+	position: absolute;
+	top: 85px;
+	left: 42%;
+	transform: rotate(90deg);
+  }
+  
+  #head {
+	width: 100px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: none;
+  }
+  
+  #body {
+	width: 10px;
+	height: 80px;
+	background-color: #fff;
+	position: absolute;
+	top: 120px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: none;
+  }
+  
+  #left-arm {
+	width: 60px;
+	height: 10px;
+	background-color: #fff;
+	position: absolute;
+	top: 130px;
+	left: 50%;
+	transform: translateX(-100%);
+	display: none;
+  }
+  
+  #right-arm {
+	width: 80px;
+	height: 10px;
+	background-color: #fff;
+	position: absolute;
+	top: 130px;
+	left: 30%;
+	transform: translateX(100%);
+	display: none;
+  }
+  
+  #left-leg {
+	width: 60px;
+	height: 10px;
+	background-color: #fff;
+	position: absolute;
+	top: 200px;
+	left: 50%;
+	transform: translateX(-100%);
+	display: none;
+  }
+  
+  #right-leg {
+	width: 80px;
+	height: 10px;
+	background-color: #fff;
+	position: absolute;
+	top: 200px;
+	left: 30%;
+	transform: translateX(100%);
+	display: none;
+  }
+
+/* ------- */
+
 
 .figure-container {
 	fill: transparent;
